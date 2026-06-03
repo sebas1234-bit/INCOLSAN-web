@@ -76,9 +76,12 @@ function Navbar({ active }) {
         padding: '0 2rem',
       }}>
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', marginRight: '2.5rem', flexShrink: 0 }}>
-          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 900, fontSize: '1.45rem', color: '#ea580c', letterSpacing: '-0.5px' }}>INCOL</span>
-          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 900, fontSize: '1.45rem', color: '#f0e6d3', letterSpacing: '-0.5px' }}>SAN</span>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img 
+            src="/src/assets/logo.png" 
+            alt="INCOLSAN" 
+            style={{ height: '48px', width: 'auto' }} 
+          />
         </div>
 
         {/* Tabs desktop */}
@@ -164,6 +167,9 @@ function SeccionInicio() {
     <section id="inicio" style={{
       minHeight: '100vh', position: 'relative', overflow: 'hidden',
       background: 'linear-gradient(160deg, #07111f 0%, #0d1f3c 55%, #1a0c02 100%)',
+      backgroundImage: `linear-gradient(160deg, rgba(7,17,31,0.92) 0%, rgba(13,31,60,0.88) 55%, rgba(26,12,2,0.92) 100%), url(/src/assets/instalacion2.jpeg)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       padding: '7rem 2rem 4rem',
     }}>
@@ -473,6 +479,30 @@ function SeccionCobertura() {
           ))}
         </div>
 
+        {/* Galería instalaciones */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+          {[
+            { src: '/src/assets/instalacion1.jpeg', label: 'Tendido de fibra óptica' },
+            { src: '/src/assets/instalacion2.jpeg', label: 'Instalación en campo' },
+            { src: '/src/assets/instalacion3.jpeg', label: 'Equipo técnico en acción' },
+          ].map(img => (
+            <div key={img.src} style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', aspectRatio: '4/3' }}>
+              <img src={img.src} alt={img.label} style={{
+                width: '100%', height: '100%', objectFit: 'cover',
+                filter: 'brightness(0.8)',
+              }} />
+              <div style={{
+                position: 'absolute', bottom: 0, left: 0, right: 0,
+                background: 'linear-gradient(transparent, rgba(7,26,46,0.9))',
+                padding: '0.8rem', fontSize: '0.78rem',
+                color: 'rgba(240,230,211,0.9)', fontWeight: 600,
+              }}>
+                {img.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Mapa de zonas */}
         <div style={{
           background: 'rgba(59,130,246,0.05)',
@@ -594,6 +624,66 @@ function SeccionNosotros() {
           ))}
         </div>
 
+        {/* Foto del equipo */}
+        <div style={{ marginBottom: '2.5rem', borderRadius: '1.5rem', overflow: 'hidden', position: 'relative' }}>
+          <img src="/src/assets/equipo.jpeg" alt="Equipo INCOLSAN" style={{
+            width: '100%',
+            height: 'clamp(280px, 40vw, 420px)',
+            objectFit: 'cover',
+            objectPosition: 'center 15%',
+          }} />
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to top, rgba(18,11,4,0.88) 0%, rgba(18,11,4,0.1) 45%, transparent 70%)',
+            display: 'flex', alignItems: 'flex-end', padding: '2rem',
+          }}>
+            <div>
+              <h3 style={{ fontWeight: 900, fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', marginBottom: '0.3rem' }}>
+                Nuestro Equipo
+              </h3>
+              <p style={{ color: 'rgba(240,230,211,0.7)', fontSize: 'clamp(0.8rem, 2vw, 0.9rem)' }}>
+                El corazón de INCOLSAN — personas de Acandí conectando a Acandí
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Impacto social — sorteos */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.2rem', marginBottom: '2.5rem' }}>
+          {[
+            { 
+              src: '/src/assets/sorteo2.jpeg', 
+              titulo: 'Compromiso con la comunidad', 
+              desc: 'Premiamos la fidelidad de nuestros clientes con sorteos y regalos.',
+              position: 'center center'
+            },
+            { 
+              src: '/src/assets/sorteo1.jpeg', 
+              titulo: 'Internet que transforma vidas', 
+              desc: 'Cada familia conectada es un paso más hacia el desarrollo de Acandí.',
+              position: 'center 30%'
+            },
+          ].map(item => (
+            <div key={item.titulo} style={{
+              borderRadius: '1.2rem', overflow: 'hidden',
+              border: '1px solid rgba(234,88,12,0.15)',
+              background: 'rgba(255,255,255,0.02)',
+            }}>
+              <div style={{ width: '100%', height: '240px', overflow: 'hidden' }}>
+                <img src={item.src} alt={item.titulo} style={{
+                  width: '100%', height: '100%', objectFit: 'cover',
+                  objectPosition: item.position,
+                  transition: 'transform 0.3s ease',
+                }} />
+              </div>
+              <div style={{ padding: '1.2rem' }}>
+                <h4 style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.4rem', color: '#ea580c' }}>{item.titulo}</h4>
+                <p style={{ color: 'rgba(240,230,211,0.6)', fontSize: '0.85rem', lineHeight: 1.6 }}>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Tortuga Caná */}
         <div style={{
           background: 'linear-gradient(135deg, rgba(59,130,246,0.07), rgba(234,88,12,0.05))',
@@ -704,6 +794,29 @@ function SeccionContacto() {
                 <span style={{ color: 'rgba(240,230,211,0.8)', fontSize: '0.92rem' }}>{item.texto}</span>
               </div>
             ))}
+ 
+          {/* Foto oficina */}
+          <div style={{ 
+            borderRadius: '1rem', overflow: 'hidden', 
+            marginBottom: '1.2rem', marginTop: '1rem',
+            border: '1px solid rgba(37,211,102,0.15)',
+          }}>
+            <img src="/src/assets/oficina.jpeg" alt="Oficina INCOLSAN" style={{
+              width: '100%', 
+              height: 'clamp(220px, 30vw, 280px)', 
+              objectFit: 'cover',
+              objectPosition: 'center 20%',
+            }} />
+            <div style={{
+              background: 'rgba(7,26,16,0.8)',
+              padding: '0.9rem 1rem',
+              fontSize: '0.85rem',
+              color: 'rgba(240,230,211,0.7)',
+              borderTop: '1px solid rgba(37,211,102,0.1)',
+            }}>
+              📍 Calle Miramar, frente al antiguo Telecom — Acandí, Chocó
+            </div>
+          </div>
 
             <button onClick={handleWhatsApp} style={{
               marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.7rem',
@@ -785,8 +898,7 @@ function Footer() {
       borderTop: '1px solid rgba(234,88,12,0.12)', textAlign: 'center',
     }}>
       <div style={{ marginBottom: '1rem' }}>
-        <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 900, fontSize: '1.4rem', color: '#ea580c' }}>INCOL</span>
-        <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 900, fontSize: '1.4rem', color: '#f0e6d3' }}>SAN</span>
+        <img src="/src/assets/logo.png" alt="INCOLSAN" style={{ height: '55px', width: 'auto' }} />
       </div>
       <p style={{ color: 'rgba(240,230,211,0.35)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
         Hecho con ❤️ en Acandí, Chocó — Colombia
@@ -943,7 +1055,7 @@ export default function App() {
     const ids = ['inicio', 'planes', 'cobertura', 'nosotros', 'contacto']
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id) }),
-      { threshold: 0.35 }
+      { threshold: 0.2 }
     )
     ids.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el) })
     return () => obs.disconnect()
