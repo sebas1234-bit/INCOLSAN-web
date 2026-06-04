@@ -78,7 +78,7 @@ function Navbar({ active }) {
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <img 
-            src="/src/assets/logo.png" 
+            src="/logo.png" 
             alt="INCOLSAN" 
             style={{ height: '48px', width: 'auto' }} 
           />
@@ -167,7 +167,7 @@ function SeccionInicio() {
     <section id="inicio" style={{
       minHeight: '100vh', position: 'relative', overflow: 'hidden',
       background: 'linear-gradient(160deg, #07111f 0%, #0d1f3c 55%, #1a0c02 100%)',
-      backgroundImage: `linear-gradient(160deg, rgba(7,17,31,0.92) 0%, rgba(13,31,60,0.88) 55%, rgba(26,12,2,0.92) 100%), url(/src/assets/instalacion2.jpeg)`,
+      backgroundImage: `linear-gradient(160deg, rgba(7,17,31,0.92) 0%, rgba(13,31,60,0.88) 55%, rgba(26,12,2,0.92) 100%), url(/instalacion2.jpeg)`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -482,9 +482,9 @@ function SeccionCobertura() {
         {/* Galería instalaciones */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
           {[
-            { src: '/src/assets/instalacion1.jpeg', label: 'Tendido de fibra óptica' },
-            { src: '/src/assets/instalacion2.jpeg', label: 'Instalación en campo' },
-            { src: '/src/assets/instalacion3.jpeg', label: 'Equipo técnico en acción' },
+            { src: '/instalacion1.jpeg', label: 'Tendido de fibra óptica' },
+            { src: '/instalacion2.jpeg', label: 'Instalación en campo' },
+            { src: '/instalacion3.jpeg', label: 'Equipo técnico en acción' },
           ].map(img => (
             <div key={img.src} style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', aspectRatio: '4/3' }}>
               <img src={img.src} alt={img.label} style={{
@@ -626,7 +626,7 @@ function SeccionNosotros() {
 
         {/* Foto del equipo */}
         <div style={{ marginBottom: '2.5rem', borderRadius: '1.5rem', overflow: 'hidden', position: 'relative' }}>
-          <img src="/src/assets/equipo.jpeg" alt="Equipo INCOLSAN" style={{
+          <img src="/equipo.jpeg" alt="Equipo INCOLSAN" style={{
             width: '100%',
             height: 'clamp(280px, 40vw, 420px)',
             objectFit: 'cover',
@@ -652,13 +652,13 @@ function SeccionNosotros() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.2rem', marginBottom: '2.5rem' }}>
           {[
             { 
-              src: '/src/assets/sorteo2.jpeg', 
+              src: '/sorteo2.jpeg', 
               titulo: 'Compromiso con la comunidad', 
               desc: 'Premiamos la fidelidad de nuestros clientes con sorteos y regalos.',
               position: 'center center'
             },
             { 
-              src: '/src/assets/sorteo1.jpeg', 
+              src: '/sorteo1.jpeg', 
               titulo: 'Internet que transforma vidas', 
               desc: 'Cada familia conectada es un paso más hacia el desarrollo de Acandí.',
               position: 'center 30%'
@@ -801,7 +801,7 @@ function SeccionContacto() {
             marginBottom: '1.2rem', marginTop: '1rem',
             border: '1px solid rgba(37,211,102,0.15)',
           }}>
-            <img src="/src/assets/oficina.jpeg" alt="Oficina INCOLSAN" style={{
+            <img src="/oficina.jpeg" alt="Oficina INCOLSAN" style={{
               width: '100%', 
               height: 'clamp(220px, 30vw, 280px)', 
               objectFit: 'cover',
@@ -898,7 +898,7 @@ function Footer() {
       borderTop: '1px solid rgba(234,88,12,0.12)', textAlign: 'center',
     }}>
       <div style={{ marginBottom: '1rem' }}>
-        <img src="/src/assets/logo.png" alt="INCOLSAN" style={{ height: '55px', width: 'auto' }} />
+        <img src="/logo.png" alt="INCOLSAN" style={{ height: '55px', width: 'auto' }} />
       </div>
       <p style={{ color: 'rgba(240,230,211,0.35)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
         Hecho con ❤️ en Acandí, Chocó — Colombia
