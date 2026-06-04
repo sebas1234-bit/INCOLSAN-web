@@ -1,3 +1,11 @@
+import imgLogo from '/logo.png'
+import imgEquipo from '/equipo.jpeg'
+import imgInstalacion1 from '/instalacion1.jpeg'
+import imgInstalacion2 from '/instalacion2.jpeg'
+import imgInstalacion3 from '/instalacion3.jpeg'
+import imgSorteo1 from '/sorteo1.jpeg'
+import imgSorteo2 from '/sorteo2.jpeg'
+import imgOficina from '/oficina.jpeg'
 import { useState, useEffect } from 'react'
 import { Menu, X, Phone, Mail, MapPin, Wifi, Shield, Users, Leaf, ChevronDown, Send, MessageCircle } from 'lucide-react'
 
@@ -78,7 +86,7 @@ function Navbar({ active }) {
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <img 
-            src="/logo.png" 
+            src={imgLogo}
             alt="INCOLSAN" 
             style={{ height: '48px', width: 'auto' }} 
           />
@@ -482,11 +490,11 @@ function SeccionCobertura() {
         {/* Galería instalaciones */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
           {[
-            { src: '/instalacion1.jpeg', label: 'Tendido de fibra óptica' },
-            { src: '/instalacion2.jpeg', label: 'Instalación en campo' },
-            { src: '/instalacion3.jpeg', label: 'Equipo técnico en acción' },
+            { src: imgInstalacion1, label: 'Tendido de fibra óptica' },
+            { src: imgInstalacion2, label: 'Instalación en campo' },
+            { src: imgInstalacion3, label: 'Equipo técnico en acción' },
           ].map(img => (
-            <div key={img.src} style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', aspectRatio: '4/3' }}>
+            <div key={img.label} style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', aspectRatio: '4/3' }}>
               <img src={img.src} alt={img.label} style={{
                 width: '100%', height: '100%', objectFit: 'cover',
                 filter: 'brightness(0.8)',
@@ -626,7 +634,7 @@ function SeccionNosotros() {
 
         {/* Foto del equipo */}
         <div style={{ marginBottom: '2.5rem', borderRadius: '1.5rem', overflow: 'hidden', position: 'relative' }}>
-          <img src="/equipo.jpeg" alt="Equipo INCOLSAN" style={{
+          <img src={imgEquipo} alt="Equipo INCOLSAN" style={{
             width: '100%',
             height: 'clamp(280px, 40vw, 420px)',
             objectFit: 'cover',
@@ -652,13 +660,13 @@ function SeccionNosotros() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.2rem', marginBottom: '2.5rem' }}>
           {[
             { 
-              src: '/sorteo2.jpeg', 
+              src: imgSorteo2, 
               titulo: 'Compromiso con la comunidad', 
               desc: 'Premiamos la fidelidad de nuestros clientes con sorteos y regalos.',
               position: 'center center'
             },
             { 
-              src: '/sorteo1.jpeg', 
+              src: imgSorteo1, 
               titulo: 'Internet que transforma vidas', 
               desc: 'Cada familia conectada es un paso más hacia el desarrollo de Acandí.',
               position: 'center 30%'
