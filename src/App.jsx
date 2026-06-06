@@ -594,8 +594,8 @@ function SeccionNosotros() {
         {/* Misión + Visión */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
           {[
-            { color: '#ea580c', rgb: '234,88,12', titulo: '🎯 Misión', texto: 'Proveer internet de fibra óptica de alta calidad a las comunidades de la costa del Chocó, impulsando el desarrollo económico, educativo y social de nuestra región.' },
-            { color: '#60a5fa', rgb: '96,165,250', titulo: '🔭 Visión', texto: 'Ser el proveedor de internet más confiable y comprometido del litoral Caribe colombiano, conectando comunidades con el mundo sin perder sus raíces.' },
+            { color: '#ea580c', rgb: '234,88,12', titulo: '🎯 Misión', texto: 'Reducir la brecha digital en el Urabá Chocoano conectando hogares a internet y televisión por fibra óptica. Nos mueve la mejora continua y el compromiso de superar las expectativas de nuestros clientes, socios y colaboradores.' },
+            { color: '#60a5fa', rgb: '96,165,250', titulo: '🔭 Visión', texto: 'Para el 2029, seremos el referente de conectividad y desarrollo en la región. Transformamos la comunidad siendo parte activa de la revolución 4.0, ofreciendo servicios de calidad, innovación y un crecimiento sostenible que beneficia a nuestros clientes y aliados.' },
           ].map(item => (
             <div key={item.titulo} style={{
               background: `rgba(${item.rgb},0.07)`,
