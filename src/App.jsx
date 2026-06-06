@@ -1,11 +1,11 @@
-import imgLogo from '/logo.png'
-import imgEquipo from '/equipo.jpeg'
-import imgInstalacion1 from '/instalacion1.jpeg'
-import imgInstalacion2 from '/instalacion2.jpeg'
-import imgInstalacion3 from '/instalacion3.jpeg'
-import imgSorteo1 from '/sorteo1.jpeg'
-import imgSorteo2 from '/sorteo2.jpeg'
-import imgOficina from '/oficina.jpeg'
+import imgLogo from './assets/logo.png'
+import imgEquipo from './assets/equipo.jpeg'
+import imgInstalacion1 from './assets/instalacion1.png'
+import imgInstalacion2 from './assets/instalacion2.png'
+import imgInstalacion3 from './assets/instalacion3.png'
+import imgSorteo1 from './assets/sorteo1.jpeg'
+import imgSorteo2 from './assets/sorteo2.jpeg'
+import imgOficina from './assets/oficina.jpeg'
 import { useState, useEffect } from 'react'
 import { Menu, X, Phone, Mail, MapPin, Wifi, Shield, Users, Leaf, ChevronDown, Send, MessageCircle } from 'lucide-react'
 
@@ -175,7 +175,7 @@ function SeccionInicio() {
     <section id="inicio" style={{
       minHeight: '100vh', position: 'relative', overflow: 'hidden',
       background: 'linear-gradient(160deg, #07111f 0%, #0d1f3c 55%, #1a0c02 100%)',
-      backgroundImage: `linear-gradient(160deg, rgba(7,17,31,0.92) 0%, rgba(13,31,60,0.88) 55%, rgba(26,12,2,0.92) 100%), url(/instalacion2.jpeg)`,
+     backgroundImage: `linear-gradient(160deg, rgba(7,17,31,0.92) 0%, rgba(13,31,60,0.88) 55%, rgba(26,12,2,0.92) 100%), url(${imgInstalacion2})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -809,7 +809,7 @@ function SeccionContacto() {
             marginBottom: '1.2rem', marginTop: '1rem',
             border: '1px solid rgba(37,211,102,0.15)',
           }}>
-            <img src="/oficina.jpeg" alt="Oficina INCOLSAN" style={{
+            <img src={imgOficina} alt="Oficina INCOLSAN" style={{
               width: '100%', 
               height: 'clamp(220px, 30vw, 280px)', 
               objectFit: 'cover',
@@ -906,7 +906,7 @@ function Footer() {
       borderTop: '1px solid rgba(234,88,12,0.12)', textAlign: 'center',
     }}>
       <div style={{ marginBottom: '1rem' }}>
-        <img src="/logo.png" alt="INCOLSAN" style={{ height: '55px', width: 'auto' }} />
+        <img src={imgLogo} alt="INCOLSAN" style={{ height: '55px', width: 'auto' }} />
       </div>
       <p style={{ color: 'rgba(240,230,211,0.35)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
         Hecho con ❤️ en Acandí, Chocó — Colombia
