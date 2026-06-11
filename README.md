@@ -5,8 +5,12 @@ Sitio web oficial de **Inversiones Colón Santa María S.A.S. (INCOLSAN)**, prov
 ## 🌊 Tecnologías
 - React + Vite
 - Tailwind CSS
-- Framer Motion
 - Lucide React
+- Cloudflare Workers (proxy seguro para IA)
+- Groq API con Llama 3.1 (chatbot Caná)
+
+## 🤖 Chatbot Caná
+Asistente virtual impulsado por IA integrado en la página. Responde preguntas sobre planes, cobertura y soporte. La API key está protegida mediante un Cloudflare Worker como proxy seguro.
 
 ## 🚀 Correr localmente
 ```bash
