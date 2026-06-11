@@ -934,23 +934,21 @@ function ChatWidget() {
     setMessages(prev => [...prev, { role: 'user', text: userMsg }])
     setLoading(true)
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('https://incolsan-chat.jhernandezlondono09.workers.dev/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: `Eres Caná, el asistente virtual de INCOLSAN, proveedor de internet de fibra óptica en Acandí, Chocó, Colombia. Eres amigable, cálido y conoces la cultura afrocolombiana de la costa del Pacífico. Ayudas con: planes (El Nido 10Mbps $35.000, El Navegante 30Mbps $65.000, La Gran Caná 100Mbps $120.000), soporte técnico básico, cobertura y registro de nuevos clientes. Responde en español, de forma concisa y amable. Si quieren contratar, diles que llamen o escriban al WhatsApp de INCOLSAN.`,
           messages: messages.concat({ role: 'user', content: userMsg }).map(m => ({
-            role: m.role, content: m.role === 'user' ? (m.text || m.content) : (m.text || m.content)
+            role: m.role,
+            content: m.text || m.content
           }))
         })
       })
       const data = await res.json()
-      const reply = data.content?.[0]?.text || 'Lo siento, hubo un error. Intenta de nuevo.'
+      const reply = data.reply || 'Lo siento, hubo un error.'
       setMessages(prev => [...prev, { role: 'assistant', text: reply }])
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', text: 'Error de conexión. Por favor intenta más tarde.' }])
+      setMessages(prev => [...prev, { role: 'assistant', text: 'Error de conexión. Por favor intenta de nuevo.' }])
     }
     setLoading(false)
   }
