@@ -265,7 +265,7 @@ function SeccionInicio() {
           marginTop: '4rem', paddingTop: '3rem',
           borderTop: '1px solid rgba(255,255,255,0.07)',
         }}>
-          {[['500+', 'Familias conectadas'], ['99.5%', 'Uptime garantizado'], ['<4h', 'Soporte técnico'], ['3', 'Planes disponibles']].map(([val, label]) => (
+          {[['500+', 'Familias conectadas'], ['99.5%', 'Uptime garantizado'], ['<4h', 'Soporte técnico'], ['7', 'Planes disponibles']].map(([val, label]) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#ea580c', fontFamily: 'Syne, sans-serif' }}>{val}</div>
               <div style={{ fontSize: '0.8rem', color: 'rgba(240,230,211,0.5)', marginTop: '2px' }}>{label}</div>
@@ -288,22 +288,53 @@ function SeccionInicio() {
 function SeccionPlanes() {
   const planes = [
     {
-      icon: '🪺', nombre: 'El Nido', velocidad: '10 Mbps', precio: '$35.000',
-      desc: 'Ideal para navegar, redes sociales y videollamadas básicas.',
-      features: ['Navegación fluida', 'Redes sociales', 'Videollamadas', 'Soporte básico'],
+      icon: '🏠', nombre: 'Plan Económico Hogar', velocidad: 'TV + Internet',
+      precio: '$90.000',
+      desc: 'Ideal para hogares con uso básico de internet y televisión.',
+      features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Soporte técnico', 'Fechas de corte flexibles'],
       color: '#3b82f6', popular: false,
     },
     {
-      icon: '🌊', nombre: 'El Navegante', velocidad: '30 Mbps', precio: '$65.000',
-      desc: 'Perfecto para familias y trabajo desde casa.',
-      features: ['Streaming HD', 'Trabajo remoto', 'Gaming casual', 'Soporte prioritario', 'WiFi potente'],
+      icon: '⭐', nombre: 'Plan Especial Hogar', velocidad: 'TV + Internet',
+      precio: '$110.000',
+      desc: 'El equilibrio perfecto entre precio y rendimiento para tu familia.',
+      features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Más dispositivos', 'Soporte técnico'],
       color: '#ea580c', popular: true,
     },
     {
-      icon: '🐢', nombre: 'La Gran Caná', velocidad: '100 Mbps', precio: '$120.000',
-      desc: 'Máxima velocidad para negocios y usuarios exigentes.',
-      features: ['Streaming 4K', 'Gaming online', 'Múltiples dispositivos', 'Soporte 24/7', 'IP fija', 'SLA garantizado'],
+      icon: '👑', nombre: 'Plan Premium Hogar', velocidad: 'TV + Internet',
+      precio: '$150.000',
+      desc: 'La mejor experiencia para hogares con alto consumo.',
+      features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Alta capacidad', 'Soporte técnico prioritario'],
       color: '#a855f7', popular: false,
+    },
+    {
+      icon: '📶', nombre: 'Internet 10 Mbps', velocidad: '10 Mbps',
+      precio: '$110.000',
+      desc: 'Solo internet para quienes no necesitan televisión.',
+      features: ['Solo internet', 'Velocidad simétrica', 'Múltiples dispositivos', 'Soporte técnico'],
+      color: '#3b82f6', popular: false,
+    },
+    {
+      icon: '🚀', nombre: 'Internet 15 Mbps', velocidad: '15 Mbps',
+      precio: '$150.000',
+      desc: 'Mayor velocidad para streaming, gaming y trabajo remoto.',
+      features: ['Solo internet', 'Velocidad simétrica', 'Alta velocidad', 'Soporte prioritario'],
+      color: '#10b981', popular: false,
+    },
+    {
+      icon: '🏢', nombre: 'Empresarial 15 Megas', velocidad: '15 Mbps Dedicadas',
+      precio: '$300.000',
+      desc: 'Megas dedicadas exclusivas para tu negocio. Sin compartir.',
+      features: ['Megas dedicadas', 'No compartido', 'Ideal cámaras IP', 'Streaming estable', 'Soporte empresarial'],
+      color: '#f59e0b', popular: false,
+    },
+    {
+      icon: '🏭', nombre: 'Empresarial 20 Megas', velocidad: '20 Mbps Dedicadas',
+      precio: '$400.000',
+      desc: 'Máxima potencia dedicada para empresas con alta demanda.',
+      features: ['Megas dedicadas', 'No compartido', 'Máxima estabilidad', 'Descargas rápidas', 'Streaming estables', 'Soporte empresarial prioritario'],
+      color: '#ef4444', popular: false,
     },
   ]
 
@@ -334,13 +365,21 @@ function SeccionPlanes() {
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, marginBottom: '1rem', letterSpacing: '-0.5px' }}>
             Planes que <span style={{ color: '#ea580c' }}>Fluyen</span> Contigo
           </h2>
-          <p style={{ color: 'rgba(240,230,211,0.55)', fontSize: '1.05rem' }}>
+          <p style={{ color: 'rgba(240,230,211,0.55)', fontSize: '1.05rem', marginBottom: '1rem' }}>
             Elige el plan que se adapta a tu vida en la costa
           </p>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            background: 'rgba(234,88,12,0.12)', border: '1px solid rgba(234,88,12,0.35)',
+            borderRadius: '999px', padding: '0.5rem 1.4rem',
+            fontSize: '0.82rem', color: '#fb923c', fontWeight: 700,
+          }}>
+            🎉 Promoción activa: Instalación + primer mes por solo $150.000
+          </div>
         </div>
 
         {/* Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '1.8rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.8rem' }}>
           {planes.map((plan) => (
             <div key={plan.nombre} className="plan-card" style={{
               background: plan.popular
