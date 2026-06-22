@@ -286,56 +286,63 @@ function SeccionInicio() {
 // Identidad: fondo casi negro cálido, tarjetas con brillo
 // ══════════════════════════════════════════════════════════
 function SeccionPlanes() {
-  const planes = [
-    {
-      icon: '🏠', nombre: 'Plan Económico Hogar', velocidad: 'TV + Internet',
-      precio: '$90.000',
-      desc: 'Ideal para hogares con uso básico de internet y televisión.',
-      features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Soporte técnico', 'Fechas de corte flexibles'],
-      color: '#3b82f6', popular: false,
-    },
-    {
-      icon: '⭐', nombre: 'Plan Especial Hogar', velocidad: 'TV + Internet',
-      precio: '$110.000',
-      desc: 'El equilibrio perfecto entre precio y rendimiento para tu familia.',
-      features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Más dispositivos', 'Soporte técnico'],
-      color: '#ea580c', popular: true,
-    },
-    {
-      icon: '👑', nombre: 'Plan Premium Hogar', velocidad: 'TV + Internet',
-      precio: '$150.000',
-      desc: 'La mejor experiencia para hogares con alto consumo.',
-      features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Alta capacidad', 'Soporte técnico prioritario'],
-      color: '#a855f7', popular: false,
-    },
-    {
-      icon: '📶', nombre: 'Internet 10 Mbps', velocidad: '10 Mbps',
-      precio: '$110.000',
-      desc: 'Solo internet para quienes no necesitan televisión.',
-      features: ['Solo internet', 'Velocidad simétrica', 'Múltiples dispositivos', 'Soporte técnico'],
-      color: '#3b82f6', popular: false,
-    },
-    {
-      icon: '🚀', nombre: 'Internet 15 Mbps', velocidad: '15 Mbps',
-      precio: '$150.000',
-      desc: 'Mayor velocidad para streaming, gaming y trabajo remoto.',
-      features: ['Solo internet', 'Velocidad simétrica', 'Alta velocidad', 'Soporte prioritario'],
-      color: '#10b981', popular: false,
-    },
-    {
-      icon: '🏢', nombre: 'Empresarial 15 Megas', velocidad: '15 Mbps Dedicadas',
-      precio: '$300.000',
-      desc: 'Megas dedicadas exclusivas para tu negocio. Sin compartir.',
-      features: ['Megas dedicadas', 'No compartido', 'Ideal cámaras IP', 'Streaming estable', 'Soporte empresarial'],
-      color: '#f59e0b', popular: false,
-    },
-    {
-      icon: '🏭', nombre: 'Empresarial 20 Megas', velocidad: '20 Mbps Dedicadas',
-      precio: '$400.000',
-      desc: 'Máxima potencia dedicada para empresas con alta demanda.',
-      features: ['Megas dedicadas', 'No compartido', 'Máxima estabilidad', 'Descargas rápidas', 'Streaming estables', 'Soporte empresarial prioritario'],
-      color: '#ef4444', popular: false,
-    },
+  const [activeTab, setActiveTab] = useState('hogar')
+
+  const planes = {
+    hogar: [
+      {
+        icon: '🏠', nombre: 'Plan Económico Hogar', velocidad: 'TV + Internet',
+        precio: '$90.000', desc: 'Ideal para hogares con uso básico de internet y televisión.',
+        features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Soporte técnico', 'Fechas de corte flexibles'],
+        color: '#3b82f6', popular: false,
+      },
+      {
+        icon: '⭐', nombre: 'Plan Especial Hogar', velocidad: 'TV + Internet',
+        precio: '$110.000', desc: 'El equilibrio perfecto entre precio y rendimiento para tu familia.',
+        features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Más dispositivos', 'Soporte técnico'],
+        color: '#ea580c', popular: true,
+      },
+      {
+        icon: '👑', nombre: 'Plan Premium Hogar', velocidad: 'TV + Internet',
+        precio: '$150.000', desc: 'La mejor experiencia para hogares con alto consumo.',
+        features: ['TV incluida', 'Internet hogar', 'Velocidad simétrica', 'Alta capacidad', 'Soporte técnico prioritario'],
+        color: '#a855f7', popular: false,
+      },
+    ],
+    internet: [
+      {
+        icon: '📶', nombre: 'Internet 10 Mbps', velocidad: '10 Mbps',
+        precio: '$110.000', desc: 'Solo internet para quienes no necesitan televisión.',
+        features: ['Solo internet', 'Velocidad simétrica', 'Múltiples dispositivos', 'Soporte técnico'],
+        color: '#3b82f6', popular: false,
+      },
+      {
+        icon: '🚀', nombre: 'Internet 15 Mbps', velocidad: '15 Mbps',
+        precio: '$150.000', desc: 'Mayor velocidad para streaming, gaming y trabajo remoto.',
+        features: ['Solo internet', 'Velocidad simétrica', 'Alta velocidad', 'Soporte prioritario'],
+        color: '#10b981', popular: false,
+      },
+    ],
+    empresarial: [
+      {
+        icon: '🏢', nombre: 'Empresarial 15 Megas', velocidad: '15 Mbps Dedicadas',
+        precio: '$300.000', desc: 'Megas dedicadas exclusivas para tu negocio. Sin compartir.',
+        features: ['Megas dedicadas', 'No compartido', 'Ideal cámaras IP', 'Streaming estable', 'Soporte empresarial'],
+        color: '#f59e0b', popular: false,
+      },
+      {
+        icon: '🏭', nombre: 'Empresarial 20 Megas', velocidad: '20 Mbps Dedicadas',
+        precio: '$400.000', desc: 'Máxima potencia dedicada para empresas con alta demanda.',
+        features: ['Megas dedicadas', 'No compartido', 'Máxima estabilidad', 'Descargas rápidas', 'Streaming estables', 'Soporte empresarial prioritario'],
+        color: '#ef4444', popular: false,
+      },
+    ],
+  }
+
+  const tabs = [
+    { id: 'hogar', label: 'Hogar + TV', icon: '🏠' },
+    { id: 'internet', label: 'Solo Internet', icon: '📶' },
+    { id: 'empresarial', label: 'Empresarial', icon: '🏢' },
   ]
 
   return (
@@ -344,7 +351,7 @@ function SeccionPlanes() {
       background: 'linear-gradient(180deg, #0a0f18 0%, #111827 100%)',
       position: 'relative', overflow: 'hidden',
     }}>
-      {/* Líneas decorativas */}
+      {/* Línea decorativa */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '4px',
         background: 'linear-gradient(90deg, transparent, #ea580c, transparent)',
@@ -352,7 +359,7 @@ function SeccionPlanes() {
 
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <div style={{
             display: 'inline-block', background: 'rgba(234,88,12,0.1)',
             border: '1px solid rgba(234,88,12,0.25)', borderRadius: '999px',
@@ -365,7 +372,7 @@ function SeccionPlanes() {
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, marginBottom: '1rem', letterSpacing: '-0.5px' }}>
             Planes que <span style={{ color: '#ea580c' }}>Fluyen</span> Contigo
           </h2>
-          <p style={{ color: 'rgba(240,230,211,0.55)', fontSize: '1.05rem', marginBottom: '1rem' }}>
+          <p style={{ color: 'rgba(240,230,211,0.55)', fontSize: '1.05rem', marginBottom: '1.5rem' }}>
             Elige el plan que se adapta a tu vida en la costa
           </p>
           <div style={{
@@ -378,75 +385,119 @@ function SeccionPlanes() {
           </div>
         </div>
 
-        {/* Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.8rem' }}>
-          {planes.map((plan) => (
-            <div key={plan.nombre} className="plan-card" style={{
-              background: plan.popular
-                ? 'linear-gradient(160deg, rgba(234,88,12,0.12), rgba(194,65,12,0.06))'
-                : 'rgba(255,255,255,0.03)',
-              border: plan.popular
-                ? `2px solid rgba(234,88,12,0.5)`
-                : `1px solid rgba(${plan.color === '#3b82f6' ? '59,130,246' : '168,85,247'},0.2)`,
-              borderRadius: '1.6rem', padding: '2.2rem',
-              position: 'relative',
-              boxShadow: plan.popular ? '0 0 40px rgba(234,88,12,0.12)' : 'none',
-            }}>
-              {plan.popular && (
-                <div style={{
-                  position: 'absolute', top: '-15px', left: '50%', transform: 'translateX(-50%)',
-                  background: 'linear-gradient(135deg, #ea580c, #c2410c)',
-                  color: 'white', padding: '0.3rem 1.2rem', borderRadius: '999px',
-                  fontSize: '0.72rem', fontWeight: 700, letterSpacing: '1.5px',
-                  boxShadow: '0 0 15px rgba(234,88,12,0.5)',
-                }}>
-                  ⭐ MÁS POPULAR
-                </div>
-              )}
+        {/* Tabs */}
+        <div style={{
+          display: 'flex', justifyContent: 'center', gap: '0.6rem',
+          marginBottom: '3rem', flexWrap: 'wrap',
+        }}>
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '0.5rem',
+                padding: '0.75rem 1.6rem', borderRadius: '999px',
+                border: activeTab === tab.id ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                background: activeTab === tab.id
+                  ? 'linear-gradient(135deg, #ea580c, #c2410c)'
+                  : 'rgba(255,255,255,0.03)',
+                color: activeTab === tab.id ? 'white' : 'rgba(240,230,211,0.6)',
+                fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer',
+                fontFamily: 'Plus Jakarta Sans, sans-serif',
+                transition: 'all 0.2s ease',
+                boxShadow: activeTab === tab.id ? '0 0 20px rgba(234,88,12,0.3)' : 'none',
+              }}
+            >
+              <span>{tab.icon}</span> {tab.label}
+            </button>
+          ))}
+        </div>
 
-              <div style={{ fontSize: '2.8rem', marginBottom: '1.2rem' }}>{plan.icon}</div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>{plan.nombre}</h3>
-              <p style={{ color: 'rgba(240,230,211,0.55)', fontSize: '0.9rem', marginBottom: '1.4rem', lineHeight: 1.6 }}>{plan.desc}</p>
-
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '0.5rem' }}>
-                <span style={{ fontSize: '2.4rem', fontWeight: 900, color: plan.color, fontFamily: 'Syne, sans-serif' }}>{plan.precio}</span>
-                <span style={{ color: 'rgba(240,230,211,0.4)', fontSize: '0.85rem' }}>/mes</span>
-              </div>
-
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: '6px',
-                background: `rgba(${plan.color === '#ea580c' ? '234,88,12' : plan.color === '#3b82f6' ? '59,130,246' : '168,85,247'},0.15)`,
-                border: `1px solid rgba(${plan.color === '#ea580c' ? '234,88,12' : plan.color === '#3b82f6' ? '59,130,246' : '168,85,247'},0.3)`,
-                borderRadius: '0.5rem', padding: '0.35rem 0.8rem',
-                marginBottom: '1.6rem', fontSize: '0.82rem', fontWeight: 700, color: plan.color,
-              }}>
-                <Wifi size={13} /> {plan.velocidad}
-              </div>
-
-              <ul style={{ listStyle: 'none', marginBottom: '2rem' }}>
-                {plan.features.map(f => (
-                  <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0.4rem 0', fontSize: '0.9rem', color: 'rgba(240,230,211,0.8)' }}>
-                    <span style={{ color: plan.color, fontSize: '1rem' }}>✓</span> {f}
-                  </li>
-                ))}
-              </ul>
-
-              <button onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })} style={{
-                width: '100%', padding: '0.85rem',
-                background: plan.popular ? 'linear-gradient(135deg, #ea580c, #c2410c)' : 'transparent',
-                border: plan.popular ? 'none' : `1px solid ${plan.color}40`,
-                color: plan.popular ? 'white' : plan.color,
-                borderRadius: '999px', fontWeight: 700, cursor: 'pointer',
-                fontSize: '0.95rem', fontFamily: 'Plus Jakarta Sans, sans-serif',
-                transition: 'opacity 0.2s',
-              }}>
-                {plan.popular ? 'Elegir Este Plan' : 'Contratar'}
-              </button>
-            </div>
+        {/* Cards grid — ahora máximo 3 columnas, más espacioso */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '2rem',
+          maxWidth: '1000px',
+          margin: '0 auto',
+        }}>
+          {planes[activeTab].map((plan) => (
+            <PlanCard key={plan.nombre} plan={plan} />
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+// ── Componente de tarjeta extraído para reutilizar ──
+function PlanCard({ plan }) {
+  return (
+    <div className="plan-card" style={{
+      background: plan.popular
+        ? 'linear-gradient(160deg, rgba(234,88,12,0.12), rgba(194,65,12,0.06))'
+        : 'rgba(255,255,255,0.03)',
+      border: plan.popular
+        ? '2px solid rgba(234,88,12,0.5)'
+        : `1px solid ${plan.color}33`,
+      borderRadius: '1.6rem', padding: '2.2rem',
+      position: 'relative',
+      boxShadow: plan.popular ? '0 0 40px rgba(234,88,12,0.12)' : 'none',
+      display: 'flex', flexDirection: 'column', height: '100%',
+    }}>
+      {plan.popular && (
+        <div style={{
+          position: 'absolute', top: '-15px', left: '50%', transform: 'translateX(-50%)',
+          background: 'linear-gradient(135deg, #ea580c, #c2410c)',
+          color: 'white', padding: '0.3rem 1.2rem', borderRadius: '999px',
+          fontSize: '0.72rem', fontWeight: 700, letterSpacing: '1.5px',
+          boxShadow: '0 0 15px rgba(234,88,12,0.5)',
+        }}>
+          ⭐ MÁS POPULAR
+        </div>
+      )}
+
+      <div style={{ fontSize: '2.8rem', marginBottom: '1.2rem' }}>{plan.icon}</div>
+      <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>{plan.nombre}</h3>
+      <p style={{ color: 'rgba(240,230,211,0.55)', fontSize: '0.9rem', marginBottom: '1.4rem', lineHeight: 1.6, flex: 1 }}>{plan.desc}</p>
+
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '0.5rem' }}>
+        <span style={{ fontSize: '2.4rem', fontWeight: 900, color: plan.color, fontFamily: 'Syne, sans-serif' }}>{plan.precio}</span>
+        <span style={{ color: 'rgba(240,230,211,0.4)', fontSize: '0.85rem' }}>/mes</span>
+      </div>
+
+      <div style={{
+        display: 'inline-flex', alignItems: 'center', gap: '6px',
+        background: `${plan.color}26`,
+        border: `1px solid ${plan.color}4d`,
+        borderRadius: '0.5rem', padding: '0.35rem 0.8rem',
+        marginBottom: '1.6rem', fontSize: '0.82rem', fontWeight: 700, color: plan.color,
+        width: 'fit-content',
+      }}>
+        <Wifi size={13} /> {plan.velocidad}
+      </div>
+
+      <ul style={{ listStyle: 'none', marginBottom: '2rem' }}>
+        {plan.features.map(f => (
+          <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0.4rem 0', fontSize: '0.9rem', color: 'rgba(240,230,211,0.8)' }}>
+            <span style={{ color: plan.color, fontSize: '1rem' }}>✓</span> {f}
+          </li>
+        ))}
+      </ul>
+
+      <button onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })} style={{
+        width: '100%', padding: '0.85rem',
+        background: plan.popular ? 'linear-gradient(135deg, #ea580c, #c2410c)' : 'transparent',
+        border: plan.popular ? 'none' : `1px solid ${plan.color}40`,
+        color: plan.popular ? 'white' : plan.color,
+        borderRadius: '999px', fontWeight: 700, cursor: 'pointer',
+        fontSize: '0.95rem', fontFamily: 'Plus Jakarta Sans, sans-serif',
+        transition: 'opacity 0.2s',
+        marginTop: 'auto',
+      }}>
+        {plan.popular ? 'Elegir Este Plan' : 'Contratar'}
+      </button>
+    </div>
   )
 }
 
