@@ -8,6 +8,8 @@ import imgSorteo2 from './assets/sorteo2.jpeg'
 import imgOficina from './assets/oficina.jpeg'
 import { useState, useEffect } from 'react'
 import { Menu, X, Phone, Mail, MapPin, Wifi, Shield, Users, Leaf, ChevronDown, Send, MessageCircle } from 'lucide-react'
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
+import Legal from './pages/Legal.jsx'
 
 // ── FUENTES GOOGLE ───────────────────────────────────────
 const fontLink = document.createElement('link')
@@ -990,6 +992,8 @@ function SeccionContacto() {
 
 // ── FOOTER ───────────────────────────────────────────────
 function Footer() {
+  const navigate = useNavigate()
+  
   return (
     <footer style={{
       background: '#040a12', padding: '2.5rem 2rem',
@@ -1001,9 +1005,19 @@ function Footer() {
       <p style={{ color: 'rgba(240,230,211,0.35)', fontSize: '0.85rem', marginBottom: '0.4rem' }}>
         Hecho con ❤️ en Acandí, Chocó — Colombia
       </p>
-      <p style={{ color: 'rgba(240,230,211,0.25)', fontSize: '0.78rem' }}>
+      <p style={{ color: 'rgba(240,230,211,0.25)', fontSize: '0.78rem', marginBottom: '0.5rem' }}>
         © {new Date().getFullYear()} INCOLSAN. Todos los derechos reservados.
       </p>
+      <span
+        onClick={() => navigate('/legal')}
+        style={{
+          color: 'rgba(240,230,211,0.4)', fontSize: '0.78rem',
+          textDecoration: 'none', borderBottom: '1px solid rgba(240,230,211,0.2)',
+          cursor: 'pointer',
+        }}
+      >
+        Información Legal y Cumplimiento CRC
+      </span>
     </footer>
   )
 }
@@ -1144,7 +1158,7 @@ function ChatWidget() {
 }
 
 // ── APP ──────────────────────────────────────────────────
-export default function App() {
+function HomeApp() {
   const [active, setActive] = useState('inicio')
 
   useEffect(() => {
@@ -1169,5 +1183,16 @@ export default function App() {
       <Footer />
       <ChatWidget />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeApp />} />
+        <Route path="/legal" element={<Legal />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
